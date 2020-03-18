@@ -38,11 +38,9 @@ deleteFolder = async (req, res) => {
     const idx = parent.contents.findIndex(folderId => {
       return folderId.toString() === id;
     });
-    console.log(idx);
     parent.contents = parent.contents
       .slice(0, idx)
       .concat(parent.contents.slice(idx + 1));
-    console.log(parent.contents);
     await parent.save();
     await target.remove();
     res.sendStatus(204);
@@ -63,7 +61,6 @@ getRoot = async (req, res) => {
 
 getFolder = async (req, res) => {
   try {
-    console.log(req.params.id);
     const result = await Folder.findById(req.params.id);
     res.status(200).json(result);
   } catch (err) {
