@@ -8,6 +8,7 @@ const Startbar = props => {
   return (
     <div className={styles.startbar}>
       <StartButton />
+      <div id="windowTarget" className={styles.windowTarget}></div>
       <Time />
     </div>
   );

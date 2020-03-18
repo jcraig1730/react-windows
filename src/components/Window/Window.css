@@ -1,0 +1,129 @@
+.container {
+  height: 100%;
+}
+.wrapper {
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  box-sizing: border-box;
+  background: rgb(192, 199, 200);
+
+  padding: 4px;
+  position: fixed;
+
+  width: 450px;
+  height: 450px;
+}
+
+.window {
+  height: 100%;
+}
+.topbar {
+  height: 30px;
+  width: 100%;
+  background: rgb(129, 129, 129);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.windowLabel {
+  padding: 3px;
+  color: white;
+}
+
+.windowButtons {
+  display: flex;
+}
+
+.button {
+  width: 28px;
+  height: 24px;
+  border: 1px solid black;
+  margin: 0.2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(192, 199, 200);
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+  border-right: 2px solid black;
+}
+
+.button :first-child {
+  align-items: flex-end;
+}
+
+.menubar {
+  height: 35px;
+  background: rgb(192, 199, 200);
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  background: white;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid rgb(129, 129, 129);
+  border-right: 2px solid rgb(129, 129, 129);
+  padding: 5px;
+  height: calc(100% - 109px);
+}
+
+.bottombar {
+  height: 30px;
+  background: rgb(192, 199, 200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section1 {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  height: 90%;
+  width: 49.5%;
+  box-sizing: border-box;
+}
+
+.section2 {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  height: 90%;
+  width: 49.5%;
+  box-sizing: border-box;
+}
+
+.startbar {
+  position: relative;
+  height: 100%;
+  width: 200px;
+  min-width: fit-content;
+  max-width: 200px;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  box-sizing: border-box;
+}
+
+.minimized {
+  display: none;
+}
+.maximized {
+  left: 0 !important;
+  width: 100vw;
+  top: 0 !important;
+  height: calc(100vh - 40px);
+  box-sizing: border-box;
+}

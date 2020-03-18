@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 
 import styles from "./Icon.css";
 
-const Icon = props => {
+const Icon = ({ name, type }) => {
   const [isEditingTitle, setIsEditingTitle] = useState(false);
-  const [text, setText] = useState("My Folder");
+  const [text, setText] = useState(name);
 
   useEffect(() => {}, []);
 
   const handleChange = e => {
     if (e.target.value.match("\n")) {
-      console.log(e.target.value.match("\n"));
       setIsEditingTitle(false);
     } else {
       setText(e.target.value);
@@ -19,7 +18,14 @@ const Icon = props => {
 
   return (
     <figure className={styles.icon}>
-      <img src="/windowsIcons/folder.png" alt="" />
+      <img
+        src={
+          type === "folder"
+            ? "/windowsIcons/folder.png"
+            : "/windowsIcons/file.png"
+        }
+        alt=""
+      />
       <figcaption
         onDoubleClick={e => {
           setIsEditingTitle(!isEditingTitle);

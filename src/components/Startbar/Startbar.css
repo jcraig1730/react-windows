@@ -1,10 +1,18 @@
 .startbar {
   background: rgb(192, 199, 200);
   position: fixed;
-  top: 95%;
-  height: 5%;
+  top: calc(100% - 40px);
+  height: 40px;
   width: 100%;
   border-top: 1px solid white;
   display: flex;
   align-items: center;
+  z-index: 500;
+}
+
+.windowTarget {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  margin-left: 5px;
 }
