@@ -4,7 +4,7 @@ import styles from "./Startbar.css";
 import StartButton from "./StartButton/StartButton";
 import Time from "./Time/Time";
 
-const Startbar = props => {
+const Startbar = () => {
   return (
     <div className={styles.startbar}>
       <StartButton />

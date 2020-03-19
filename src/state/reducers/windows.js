@@ -1,20 +1,25 @@
-import { GET_WINDOWS } from "../actions";
-import { CREATE_WINDOW } from "../actions";
+import { CREATE_WINDOW, REMOVE_WINDOW } from "../actions";
 
 const initialState = {
-  iconList: []
+  windows: []
 };
 
-const desktopReducer = (state = initialState, action) => {
+const windowsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_DESKTOP:
-      return (state = {
+    case CREATE_WINDOW:
+      return {
         ...state,
-        iconList: action.payload
-      });
+        windows: action.payload
+      };
+
+    case REMOVE_WINDOW:
+      return {
+        ...state,
+        windows: action.payload
+      };
     default:
       return { ...state };
   }
 };
 
-export default desktopReducer;
+export default windowsReducer;

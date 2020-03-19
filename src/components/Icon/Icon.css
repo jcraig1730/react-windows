@@ -1,3 +1,13 @@
+.iconWrapper {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+
+.inWindow {
+  color: black !important;
+}
+
 .icon {
   display: flex;
   flex-direction: column;

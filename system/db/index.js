@@ -1,18 +1,20 @@
 const mongoose = require("mongoose");
 const File = require("./models/file");
-const Folder = require("./models/folder");
-const Desktop = require("./models/desktop");
-const DesktopIcon = require("./models/desktopIcon");
+const Window = require("./models/window");
+const Icon = require("./models/icon");
 
 const connectionString = "mongodb://localhost:27017/windowsMock";
 
-const options = { useNewUrlParser: true };
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: true
+};
 
 mongoose.connect(connectionString, options);
 
 module.exports = {
   File,
-  Folder,
-  Desktop,
-  DesktopIcon
+  Window,
+  Icon
 };

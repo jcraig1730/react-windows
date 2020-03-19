@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",
-    "system": "nodemon system"
+    "system": "nodemon system",
+    "build": "webpack --mode production",
+    "start": "node system"
   },
   "keywords": [],
   "author": "",

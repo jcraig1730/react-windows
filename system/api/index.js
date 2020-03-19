@@ -2,9 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
-router.use("/folder", require("./folder"));
 router.use("/file", require("./file"));
-
-router.use("/desktop", require("./desktop"));
+router.use("/icon", require("./icon"));
+router.use("/window", require("./window"));
 
 module.exports = router;

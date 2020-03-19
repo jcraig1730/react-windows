@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import propTypes from "prop-types";
+import { connect } from "react-redux";
+import { removeWindow } from "../../state/actions";
 
+import Icon from "../Icon/Icon";
 import styles from "./Window.css";
 
 class Window extends Component {
@@ -9,11 +13,11 @@ class Window extends Component {
     this.state = {
       isMinimized: false,
       isMaximized: false,
-      startX: 300,
-      startY: 300
+      startX: this.props.startX,
+      startY: this.props.startY
     };
     this.window = document.createElement("div");
-    this.window.id = `window_${this.props.id || 1}`;
+    this.window.id = `window_${this.props.id}`;
     this.window.className = styles.startbar;
 
     this.maximizeWindow = this.maximizeWindow.bind(this);
@@ -37,11 +41,10 @@ class Window extends Component {
 
   maximizeWindow() {
     this.setState({ isMaximized: !this.state.isMaximized });
-    console.log(this.state.isMaximized);
   }
 
   close() {
-    document.querySelector("#windowTarget").removeChild(this.window);
+    this.props.removeWindow(this.props.windows, this.props.windowId);
   }
 
   handleDragStart(e) {
@@ -50,8 +53,6 @@ class Window extends Component {
   }
 
   handleDragEnd(e) {
-    console.log(this.dragStartX);
-    console.log(e.clientX);
     let movementX = Math.abs(this.dragStartX - e.clientX);
     let movementY = Math.abs(this.dragStartY - e.clientY);
     if (this.dragStartX > e.clientX) {
@@ -86,7 +87,7 @@ class Window extends Component {
               onDragEnd={this.handleDragEnd}
               className={styles.topbar}
             >
-              <div className={styles.windowLabel}>C:/</div>
+              <div className={styles.windowLabel}>{this.props.file.name}</div>
               <div className={styles.windowButtons}>
                 <div
                   className={`${styles.button}`}
@@ -106,18 +107,37 @@ class Window extends Component {
               </div>
             </div>
             <div className={styles.menubar}>File Edit View Help</div>
-            <div className={styles.content}>i'm a window</div>
+            <div className={styles.content}>
+              {this.props.file.children.map(child => {
+                return <Icon icon={child} isInWindow={true} />;
+              })}
+            </div>
             <div className={styles.bottombar}>
-              <div className={styles.section1}>6 Object(s)</div>
+              <div className={styles.section1}>
+                {this.props.file.children.length} Object(s)
+              </div>
               <div className={styles.section2}></div>
             </div>
           </div>
         </div>
-        <div onClick={this.minimizeWindow}>C:/</div>
+        <div onClick={this.minimizeWindow}>{this.props.file.name}</div>
       </div>,
       this.window
     );
   }
 }
 
-export default Window;
+Window.propTypes = {
+  removeWindow: propTypes.func.isRequired,
+  windows: propTypes.array.isRequired
+};
+
+const mapStateToProps = state => ({
+  windows: state.windows.windows
+});
+
+const mapDispatchToProps = {
+  removeWindow
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Window);
