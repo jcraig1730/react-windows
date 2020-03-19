@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GET_DESKTOP } from "./";
 
-const apiUrl = `http://localhost:8000/api`;
+const apiUrl = `https://react-windows.herokuapp.com/api`;
 
 export const getDesktop = () => async dispatch => {
   try {
