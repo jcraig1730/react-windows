@@ -5,6 +5,7 @@ const router = express.Router();
 
 const createFolder = async (req, res) => {
   try {
+    console.log(req);
     const { name, parent, type } = req.body;
 
     if (name === "C:/") {
@@ -83,7 +84,10 @@ deleteFolder = async (req, res) => {
 
 getRoot = async (req, res) => {
   try {
-    const result = await File.find({ name: "C:/" });
+    let result = await File.find({ name: "C:/" });
+    if (result.length === 0) {
+      result = [await createFolder({ body: { name: "C:/", type: "folder" } })];
+    }
     const populatedResult = await result[0].populate("children").execPopulate();
     res.status(200).json(populatedResult);
   } catch (err) {

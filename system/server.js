@@ -7,6 +7,4 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/api", require("./api"));
-
 module.exports = app;
