@@ -3,7 +3,8 @@ const File = require("./models/file");
 const Window = require("./models/window");
 const Icon = require("./models/icon");
 
-const connectionString = "mongodb://localhost:27017/windowsMock";
+const connectionString =
+  process.env.DB_CONNECTION || "mongodb://localhost:27017/windowsMock";
 
 const options = {
   useNewUrlParser: true,
