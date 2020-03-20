@@ -5,12 +5,13 @@ const router = express.Router();
 
 const createFolder = async (req, res) => {
   try {
-    console.log(req);
     const { name, parent, type } = req.body;
 
     if (name === "C:/") {
       const newFile = new File({ name, type });
-      await newFile.save();
+      try {
+        await newFile.save();
+      } catch (err) {}
       return newFile;
     }
     const newFile = new File({ name, parent, type });
