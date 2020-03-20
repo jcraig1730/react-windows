@@ -7,7 +7,7 @@ const middlewares = [thunk];
 const enhancers = window.__REDUX_DEVTOOLS_EXTENSION__
   ? window.__REDUX_DEVTOOLS_EXTENSION__()
   : null;
-const composedMiddleware = compose(applyMiddleware(...middlewares), enhancers);
+const composedMiddleware = compose(applyMiddleware(...middlewares), null);
 
 export default () => {
   return createStore(rootReducer, composedMiddleware);
