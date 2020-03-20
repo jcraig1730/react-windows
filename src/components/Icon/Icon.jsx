@@ -58,8 +58,8 @@ const Icon = props => {
         <img
           src={
             icon.type === "folder"
-              ? "/windowsIcons/folder.png"
-              : "/windowsIcons/file.png"
+              ? "https://windows-mock.s3-us-west-1.amazonaws.com/windowsIcons/folder.png"
+              : "https://windows-mock.s3-us-west-1.amazonaws.com/windowsIcons/file.png"
           }
           alt=""
         />
