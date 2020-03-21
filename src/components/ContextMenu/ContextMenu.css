@@ -1,0 +1,8 @@
+.contextMenu {
+  width: 175px;
+  height: fit-content;
+  background: rgb(192, 199, 200);
+  position: fixed;
+  z-index: 800;
+  list-style: none;
+}

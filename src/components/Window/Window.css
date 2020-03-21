@@ -10,10 +10,14 @@
   background: rgb(192, 199, 200);
 
   padding: 4px;
-  position: fixed;
 
   width: 450px;
   height: 450px;
+}
+
+.startAnchor {
+  height: 100%;
+  cursor: default;
 }
 
 .window {
@@ -76,6 +80,8 @@
   padding: 5px;
   height: calc(100% - 109px);
   overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .bottombar {
@@ -128,4 +134,13 @@
   top: 0 !important;
   height: calc(100vh - 40px);
   box-sizing: border-box;
+}
+
+.contextMenuItem {
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+.contextMenuItem:last-of-type {
+  border-bottom: none;
 }

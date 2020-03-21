@@ -6,8 +6,6 @@ const Icon = require("./models/icon");
 const connectionString =
   process.env.DB_CONNECTION || "mongodb://localhost:27017/windowsMock";
 
-console.log(connectionString);
-
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,

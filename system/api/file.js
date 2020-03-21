@@ -63,10 +63,7 @@ editFolder = async (req, res) => {};
 deleteFolder = async (req, res) => {
   try {
     const { id } = req.params;
-    // find the folder that is being removed
     const target = await Folder.findById(id);
-
-    // find the parent of the target and remove it from parent's contents
     const parent = await Folder.findById(target.parent);
     const idx = parent.contents.findIndex(folderId => {
       return folderId.toString() === id;
