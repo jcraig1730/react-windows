@@ -129,6 +129,7 @@
   display: none;
 }
 .maximized {
+  position: fixed;
   left: 0 !important;
   width: 100vw;
   top: 0 !important;
