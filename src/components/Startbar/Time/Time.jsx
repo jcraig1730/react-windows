@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import moment from "moment";
 
 import styles from "./Time.css";
 
 const Time = props => {
-  const [time, setTime] = useState(moment().format("LT"));
+  const formatTime = date => {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    return hours > 12 ? `${hours - 12}:${minutes}PM` : `${hours}:${minutes}AM`;
+  };
+  const [time, setTime] = useState(formatTime(new Date()));
 
   useEffect(() => {
     const timeInterval = setInterval(() => {
-      setTime(moment().format("LT"));
+      setTime(formatTime(new Date()));
     }, 1000);
     return () => {
       clearInterval(timeInterval);

@@ -7,7 +7,7 @@ import Window from "./Window/Window";
 
 const App = ({ windows }) => {
   return (
-    <div>
+    <div id="main">
       <Background />
       {windows.map((windowData, idx) => (
         <Window key={`window_${idx}`} {...windowData} />
